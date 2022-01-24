@@ -1,5 +1,4 @@
 const router = require('express').Router();
-//const {} = require('../../public/assets/js/index');
 const db = require('../../db/db.json');
 
 router.get('/notes', (req, res) => {
@@ -9,6 +8,11 @@ router.get('/notes', (req, res) => {
 
 router.post('/notes', (req, res) => {
     console.log('save button clicked');
+    console.log(req.body);
+});
+
+router.delete('/notes/:id', (req, res) => {
+    console.log('Delete Requested');
 });
 
 module.exports = router;
