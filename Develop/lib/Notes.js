@@ -11,6 +11,17 @@ function createNewNote(body, dbArray) {
     return note;
 }
 
+function deleteNote(param, dbArray) {
+    const index = dbArray.findIndex(db => db.id === param);
+
+    dbArray.splice(index, 1);
+    fs.writeFileSync(
+        path.join(__dirname, '../db/db.json'),
+        JSON.stringify(dbArray)
+    );
+}
+
 module.exports = {
-    createNewNote
+    createNewNote,
+    deleteNote
 }
